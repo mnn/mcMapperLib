@@ -73,6 +73,8 @@ class CSVTests extends FlatSpec with Matchers {
   "removeQuotes" should "remove quotes" in {
     import CSVReader.removeQuotes
     removeQuotes("\"xxx\"") shouldBe "xxx"
+    removeQuotes("\"\"") shouldBe ""
+    removeQuotes("\" \"") shouldBe " "
   }
 
   it should "not touch anything but quotes" in {
@@ -80,5 +82,6 @@ class CSVTests extends FlatSpec with Matchers {
     removeQuotes("-_-") shouldBe "-_-"
     removeQuotes("") shouldBe ""
     removeQuotes(null) shouldBe null
+    removeQuotes("\"") shouldBe "\""
   }
 }

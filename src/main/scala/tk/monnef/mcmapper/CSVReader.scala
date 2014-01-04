@@ -4,6 +4,7 @@ import java.io.File
 import scala.io.Source
 import java.util.regex.Pattern
 import Utils._
+import scala.annotation.tailrec
 
 object CSVReader {
   val expectedGroupsCount = 4
@@ -17,13 +18,12 @@ object CSVReader {
 
   def read(f: File): List[List[String]] = read(f, ',')
 
-  def removeQuotes(a: String): String = {
-    if (a != null && a.startsWith("\"") && a.endsWith("\"")) {
+  def removeQuotes(a: String): String =
+    if (a != null && a.startsWith("\"") && a.endsWith("\"") && a.length > 1) {
       a.tail.init
     } else a
-  }
 
-  def chopOutGroup(patty: Pattern, input: String, group: Int, start: Int): Option[(String, Int)] = {
+  def chopOutGroup(patty: Pattern, input: String, group: Int, start: Int): Option[(String, Int)] =
     patty.matcher(input) |> {
       case a =>
         try {
@@ -36,16 +36,16 @@ object CSVReader {
             throw e
         }
     }
-  }
 
   def read(f: File, sep: Char): List[List[String]] = {
     var res = List[List[String]]()
     var lineCounter = 0
     for (line <- Source.fromFile(f).getLines()) {
-      val (firstGroup: String, lastOfFirstGroup: Int) = chopOutGroup(pattyFirst, line, firstGroupNum, 0).orElseCrash(s"Not matched star of a line #$lineCounter.")
+      val (firstGroup: String, lastOfFirstGroup: Int) = chopOutGroup(pattyFirst, line, firstGroupNum, 0).orElseCrash(s"Not matched start of a line #$lineCounter.")
       val lastProcessedIndex = lastOfFirstGroup
 
-      def processString(tmp: List[String], lastIndex: Int): List[String] = {
+      @tailrec
+      def processString(tmp: List[String], lastIndex: Int): List[String] =
         chopOutGroup(pattyMid, line, midGroupNum, lastIndex) match {
           case None => tmp.reverse
           case Some((str, newLastIdx)) =>
@@ -53,7 +53,6 @@ object CSVReader {
             else processString(str :: tmp, newLastIdx)
         }
 
-      }
       val otherGroups = processString(List(), lastProcessedIndex)
       val subRes = firstGroup :: otherGroups
 

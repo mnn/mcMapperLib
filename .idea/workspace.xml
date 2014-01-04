@@ -68,7 +68,7 @@
       <file leaf-file-name="Utils.scala" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/tk/monnef/mcmapper/Utils.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="0" selection-start="109" selection-end="109" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="459">
+            <state line="7" column="26" selection-start="147" selection-end="147" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="459">
               <folding />
             </state>
           </provider>
@@ -77,7 +77,7 @@
       <file leaf-file-name="CSVReader.scala" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/scala/tk/monnef/mcmapper/CSVReader.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="34" selection-start="638" selection-end="638" vertical-scroll-proportion="0.69455254" vertical-offset="51" max-vertical-offset="1292">
+            <state line="21" column="75" selection-start="645" selection-end="645" vertical-scroll-proportion="0.29961088" vertical-offset="203" max-vertical-offset="1275">
               <folding>
                 <element signature="e#28#47#0" expanded="true" />
               </folding>
@@ -88,10 +88,8 @@
       <file leaf-file-name="CSVTests.scala" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/main/scala/tk/monnef/mcmapper/test/CSVTests.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="76" column="10" selection-start="2180" selection-end="2180" vertical-scroll-proportion="0.0" vertical-offset="1016" max-vertical-offset="1530">
-              <folding>
-                <element signature="e#33#55#0" expanded="true" />
-              </folding>
+            <state line="84" column="0" selection-start="2449" selection-end="2449" vertical-scroll-proportion="0.0" vertical-offset="1016" max-vertical-offset="1530">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -166,6 +164,16 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="External Libraries" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mcMapperLib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mcMapperLib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -422,15 +430,16 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-4" y="-4" width="1928" height="1044" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -442,11 +451,10 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Colour Chooser" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17039403" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17039403" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
@@ -474,6 +482,52 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/scala/tk/monnef/mcmapper/Utils.scala">
       <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="0" selection-start="109" selection-end="109" vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="459">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/tk/monnef/mcmapper/CSVReader.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="34" selection-start="638" selection-end="638" vertical-scroll-proportion="0.0" vertical-offset="408" max-vertical-offset="1241">
+          <folding>
+            <element signature="e#28#47#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/main/scala/tk/monnef/mcmapper/test/CSVTests.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="76" column="10" selection-start="2180" selection-end="2180" vertical-scroll-proportion="0.0" vertical-offset="1016" max-vertical-offset="1530">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/tk/monnef/mcmapper/Utils.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="0" selection-start="109" selection-end="109" vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="459">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/tk/monnef/mcmapper/CSVReader.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="34" selection-start="638" selection-end="638" vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="1292">
+          <folding>
+            <element signature="e#28#47#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/main/scala/tk/monnef/mcmapper/test/CSVTests.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="76" column="10" selection-start="2180" selection-end="2180" vertical-scroll-proportion="0.0" vertical-offset="1016" max-vertical-offset="1530">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/tk/monnef/mcmapper/Utils.scala">
+      <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="0" selection-start="109" selection-end="109" vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="255">
           <folding />
         </state>
@@ -491,9 +545,7 @@
     <entry file="file://$PROJECT_DIR$/test/main/scala/tk/monnef/mcmapper/test/CSVTests.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state line="38" column="0" selection-start="1091" selection-end="1091" vertical-scroll-proportion="0.0" vertical-offset="319" max-vertical-offset="833">
-          <folding>
-            <element signature="e#33#55#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -541,9 +593,7 @@
     <entry file="file://$PROJECT_DIR$/test/main/scala/tk/monnef/mcmapper/test/CSVTests.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state line="3" column="5" selection-start="45" selection-end="45" vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="187">
-          <folding>
-            <element signature="e#33#55#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -646,23 +696,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/tk/monnef/mcmapper/Utils.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="0" selection-start="109" selection-end="109" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="459">
+        <state line="7" column="26" selection-start="147" selection-end="147" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="459">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/main/scala/tk/monnef/mcmapper/test/CSVTests.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="76" column="10" selection-start="2180" selection-end="2180" vertical-scroll-proportion="0.0" vertical-offset="1016" max-vertical-offset="1530">
-          <folding>
-            <element signature="e#33#55#0" expanded="true" />
-          </folding>
+        <state line="84" column="0" selection-start="2449" selection-end="2449" vertical-scroll-proportion="0.0" vertical-offset="1016" max-vertical-offset="1530">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/tk/monnef/mcmapper/CSVReader.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="34" selection-start="638" selection-end="638" vertical-scroll-proportion="0.69455254" vertical-offset="51" max-vertical-offset="1292">
+        <state line="21" column="75" selection-start="645" selection-end="645" vertical-scroll-proportion="0.29961088" vertical-offset="203" max-vertical-offset="1275">
           <folding>
             <element signature="e#28#47#0" expanded="true" />
           </folding>
