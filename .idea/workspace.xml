@@ -65,19 +65,46 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Utils.scala" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/tk/monnef/mcmapper/Utils.scala">
+      <file leaf-file-name="MappingDatabaseSimple.scala" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/tk/monnef/mcmapper/MappingDatabaseSimple.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="26" selection-start="147" selection-end="147" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="459">
+            <state line="2" column="0" selection-start="28" selection-end="28" vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="170">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CSVReader.scala" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="McMapper.scala" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/tk/monnef/mcmapper/McMapper.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="9" column="8" selection-start="216" selection-end="216" vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="306">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="InputFilesNames.scala" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/tk/monnef/mcmapper/InputFilesNames.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="14" column="0" selection-start="279" selection-end="279" vertical-scroll-proportion="0.0" vertical-offset="238" max-vertical-offset="391">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CSVReader.scala" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/tk/monnef/mcmapper/CSVReader.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="75" selection-start="645" selection-end="645" vertical-scroll-proportion="0.29961088" vertical-offset="203" max-vertical-offset="1275">
+            <state line="24" column="12" selection-start="683" selection-end="683" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1207">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SrgReader.scala" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/tk/monnef/mcmapper/SrgReader.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="10" column="36" selection-start="280" selection-end="280" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="374">
               <folding>
                 <element signature="e#28#47#0" expanded="true" />
               </folding>
@@ -85,11 +112,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CSVTests.scala" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="CSVTests.scala" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/main/scala/tk/monnef/mcmapper/test/CSVTests.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="84" column="0" selection-start="2449" selection-end="2449" vertical-scroll-proportion="0.0" vertical-offset="1016" max-vertical-offset="1530">
+            <state line="39" column="0" selection-start="974" selection-end="974" vertical-scroll-proportion="0.29766536" vertical-offset="459" max-vertical-offset="1445">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TestHelper.scala" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/main/scala/tk/monnef/mcmapper/test/TestHelper.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="9" column="63" selection-start="215" selection-end="215" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="493">
+              <folding>
+                <element signature="e#33#52#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -107,7 +145,6 @@
         <option value="$PROJECT_DIR$/src/main/scala/tk/monnef/mcmapper/api/MappingDatabase.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/tk/monnef/mcmapper/api/MappingSet.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/tk/monnef/mcmapper/api/MappingObject.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/tk/monnef/mcmapper/McMapper.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/tk/monnef/mcmapper/McMapperException.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/tk/monnef/mcmapper/MappingObject.scala" />
         <option value="$PROJECT_DIR$/test/main/scala/tk/monnef/mcmapper/CSVTests.scala" />
@@ -115,8 +152,13 @@
         <option value="$PROJECT_DIR$/src/main/scala/tk/monnef/mcmapper/MappingDatabaseSimple.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/tk/monnef/mcmapper/MappingSet.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/tk/monnef/mcmapper/Utils.scala" />
-        <option value="$PROJECT_DIR$/test/main/scala/tk/monnef/mcmapper/test/CSVTests.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/tk/monnef/mcmapper/InputFilesNames.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/tk/monnef/mcmapper/McMapper.scala" />
+        <option value="$PROJECT_DIR$/test/main/scala/tk/monnef/mcmapper/test/TestSettings.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/tk/monnef/mcmapper/SrgReader.scala" />
+        <option value="$PROJECT_DIR$/test/main/scala/tk/monnef/mcmapper/test/TestHelper.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/tk/monnef/mcmapper/CSVReader.scala" />
+        <option value="$PROJECT_DIR$/test/main/scala/tk/monnef/mcmapper/test/CSVTests.scala" />
       </list>
     </option>
   </component>
@@ -430,14 +472,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-4" y="-4" width="1928" height="1044" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -451,12 +492,13 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Colour Chooser" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17039403" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17039403" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -480,19 +522,66 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/scala/tk/monnef/mcmapper/Utils.scala">
+    <entry file="file://$PROJECT_DIR$/src/main/scala/tk/monnef/mcmapper/MappingDatabaseSimple.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="0" selection-start="109" selection-end="109" vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="459">
+        <state line="2" column="0" selection-start="28" selection-end="28" vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="170">
           <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/tk/monnef/mcmapper/McMapper.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="9" selection-start="216" selection-end="216" vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="306">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/tk/monnef/mcmapper/InputFilesNames.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="0" selection-start="279" selection-end="279" vertical-scroll-proportion="0.0" vertical-offset="238" max-vertical-offset="391">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/tk/monnef/mcmapper/CSVReader.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="0" selection-start="1161" selection-end="1269" vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="1275">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/tk/monnef/mcmapper/SrgReader.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="24" selection-start="318" selection-end="318" vertical-scroll-proportion="0.0" vertical-offset="221" max-vertical-offset="374">
+          <folding>
+            <element signature="e#28#47#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/tk/monnef/mcmapper/MappingDatabaseSimple.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="0" selection-start="28" selection-end="28" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="170">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/tk/monnef/mcmapper/McMapper.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="2" selection-start="46" selection-end="46" vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="187">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/tk/monnef/mcmapper/Utils.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="0" selection-start="109" selection-end="109" vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="459" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/tk/monnef/mcmapper/CSVReader.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state line="24" column="34" selection-start="638" selection-end="638" vertical-scroll-proportion="0.0" vertical-offset="408" max-vertical-offset="1241">
-          <folding>
-            <element signature="e#28#47#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -505,17 +594,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/tk/monnef/mcmapper/Utils.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="0" selection-start="109" selection-end="109" vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="459">
-          <folding />
-        </state>
+        <state line="5" column="0" selection-start="109" selection-end="109" vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="459" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/tk/monnef/mcmapper/CSVReader.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state line="24" column="34" selection-start="638" selection-end="638" vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="1292">
-          <folding>
-            <element signature="e#28#47#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -528,17 +613,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/tk/monnef/mcmapper/Utils.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="0" selection-start="109" selection-end="109" vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="255">
-          <folding />
-        </state>
+        <state line="5" column="0" selection-start="109" selection-end="109" vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="255" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/tk/monnef/mcmapper/CSVReader.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state line="29" column="0" selection-start="782" selection-end="782" vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="1020">
-          <folding>
-            <element signature="e#28#47#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -557,9 +638,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/scala/tk/monnef/mcmapper/CSVReader.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="561">
-          <folding>
-            <element signature="e#28#47#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -585,9 +664,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/tk/monnef/mcmapper/MappingObject.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="30" selection-start="8" selection-end="26" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="442">
-          <folding />
-        </state>
+        <state line="0" column="30" selection-start="8" selection-end="26" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="442" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/main/scala/tk/monnef/mcmapper/test/CSVTests.scala">
@@ -627,19 +704,9 @@
         <state line="1" column="67" selection-start="98" selection-end="98" vertical-scroll-proportion="0.020334927" vertical-offset="0" max-vertical-offset="10523" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/tk/monnef/mcmapper/MappingDatabase.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="21" selection-start="82" selection-end="82" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255" />
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/scalatest/scalatest_2.10.0-M7/2.0.M4-2.10.0-M7-B1/scalatest_2.10.0-M7-2.0.M4-2.10.0-M7-B1.jar!/org/scalatest/SuperEngine.class">
       <provider selected="true" editor-type-id="text-editor">
         <state line="49" column="0" selection-start="7042" selection-end="7042" vertical-scroll-proportion="0.8382353" vertical-offset="434" max-vertical-offset="935" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/tk/monnef/mcmapper/McMapper.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="187" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/tk/monnef/mcmapper/McMapperException.scala">
@@ -679,14 +746,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/tk/monnef/mcmapper/MappingObject.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="26" selection-start="8" selection-end="26" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="442">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/tk/monnef/mcmapper/MappingDatabaseSimple.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="0" selection-start="28" selection-end="28" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="170" />
+        <state line="0" column="26" selection-start="8" selection-end="26" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="442" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/tk/monnef/mcmapper/MappingSet.scala">
@@ -696,24 +756,64 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/tk/monnef/mcmapper/Utils.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="26" selection-start="147" selection-end="147" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="459">
+        <state line="7" column="26" selection-start="147" selection-end="147" vertical-scroll-proportion="0.1361556" vertical-offset="0" max-vertical-offset="874" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/tk/monnef/mcmapper/MappingDatabase.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="21" selection-start="82" selection-end="82" vertical-scroll-proportion="0.058352403" vertical-offset="0" max-vertical-offset="874" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/tk/monnef/mcmapper/MappingDatabaseSimple.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="0" selection-start="28" selection-end="28" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="170">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/main/scala/tk/monnef/mcmapper/test/CSVTests.scala">
+    <entry file="file://$PROJECT_DIR$/src/main/scala/tk/monnef/mcmapper/McMapper.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="84" column="0" selection-start="2449" selection-end="2449" vertical-scroll-proportion="0.0" vertical-offset="1016" max-vertical-offset="1530">
+        <state line="9" column="8" selection-start="216" selection-end="216" vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="306">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/tk/monnef/mcmapper/InputFilesNames.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="0" selection-start="279" selection-end="279" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="391">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/main/scala/tk/monnef/mcmapper/test/TestHelper.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="63" selection-start="215" selection-end="215" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="493">
+          <folding>
+            <element signature="e#33#52#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/tk/monnef/mcmapper/CSVReader.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="75" selection-start="645" selection-end="645" vertical-scroll-proportion="0.29961088" vertical-offset="203" max-vertical-offset="1275">
+        <state line="24" column="12" selection-start="683" selection-end="683" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1207">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/tk/monnef/mcmapper/SrgReader.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="36" selection-start="280" selection-end="280" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="374">
           <folding>
             <element signature="e#28#47#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/main/scala/tk/monnef/mcmapper/test/CSVTests.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="0" selection-start="974" selection-end="974" vertical-scroll-proportion="0.29766536" vertical-offset="459" max-vertical-offset="1445">
+          <folding />
         </state>
       </provider>
     </entry>

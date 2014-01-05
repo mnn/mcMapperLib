@@ -8,7 +8,7 @@ import scala.annotation.tailrec
 
 object CSVReader {
   val expectedGroupsCount = 4
-  val regexBody = "(?:\"[^\"]*\")|(?:[^,\"]*)"
+  val regexBody = "(?:\"[^\"]*\")|(?:[^,\"\\s]*)"
   val regexSep = "(?:\\s*,\\s*)"
   val regexString = s"(?:$regexSep)($regexBody)"
   val pattyMid = Pattern.compile(regexString)
