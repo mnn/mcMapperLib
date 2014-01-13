@@ -1,9 +1,6 @@
 package tk.monnef.mcmapper.test
 
 import org.scalatest._
-import java.io.File
-import tk.monnef.mcmapper.CSVReader
-import java.util.regex.Pattern
 
 class CSVTests extends FlatSpec with Matchers {
 
@@ -51,41 +48,4 @@ class CSVTests extends FlatSpec with Matchers {
     r.length should be(1)
     r(0) should equal(List("some Text", "\"_\"", "next", "last"))
   }
-
-  /*
-  "chopOutGroup" should "chop out a group" in {
-    val p = Pattern.compile(s"^((x+)|(y+))")
-    val r = CSVReader.chopOutGroup(p, "xx", 0, 0)
-    r shouldBe Some("xx", 2)
-  }
-
-  "regexBody" should "match beginning" in {
-    var m = CSVReader.pattyFirst.matcher("abc, def")
-    m.find() shouldBe true
-    m.group(CSVReader.firstGroupNum) shouldBe "abc"
-
-    m = CSVReader.pattyFirst.matcher("abc")
-    m.find() shouldBe true
-    m.group(CSVReader.firstGroupNum) shouldBe "abc"
-
-    m = CSVReader.pattyFirst.matcher("\"abc\"")
-    m.find() shouldBe true
-    CSVReader.removeQuotes(m.group(CSVReader.firstGroupNum)) shouldBe "abc"
-  }
-
-  "removeQuotes" should "remove quotes" in {
-    import CSVReader.removeQuotes
-    removeQuotes("\"xxx\"") shouldBe "xxx"
-    removeQuotes("\"\"") shouldBe ""
-    removeQuotes("\" \"") shouldBe " "
-  }
-
-  it should "not touch anything but quotes" in {
-    import CSVReader.removeQuotes
-    removeQuotes("-_-") shouldBe "-_-"
-    removeQuotes("") shouldBe ""
-    removeQuotes(null) shouldBe null
-    removeQuotes("\"") shouldBe "\""
-  }
-  */
 }
