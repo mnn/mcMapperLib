@@ -1,9 +1,10 @@
 package tk.monnef.mcmapper
 
 import tk.monnef.mcmapper.MappingSide._
+import Utils._
 
 object RawDataMerger {
-  def merge(srgRaw: List[List[String]], fieldsRaw: List[List[String]], methodsRaw: List[List[String]]): MappingDatabaseSimple = {
+  def merge(srgRaw: List[List[String]], fieldsRaw: List[List[String]], methodsRaw: List[List[String]], skipFinalCheck: Boolean = false): MappingDatabaseSimple = {
     var classMapping = new MappingSet[ClassMapping]()
     var fieldMapping = new MappingSet[FieldMapping]()
     var methodMapping = new MappingSet[MethodMapping]()
@@ -40,7 +41,28 @@ object RawDataMerger {
     }
 
     // CSV processing
-    // todo
+    for {item <- fieldsRaw} {
+      val mappingObj = fieldMapping.find(m => m.srg.equals(item(0))).orElseCrash(s"Cannot find field mapping csv:srgName -> srg:srgName for item ${item(0)}.")
+      fieldMapping -= mappingObj
+      // what about side number? for now ignoring
+      val newMappingObj = mappingObj.copy(full = item(1), comment = item(3))
+      fieldMapping += newMappingObj
+    }
+    for {item <- methodsRaw} {
+      val mappingObj = methodMapping.find(m => m.srgShortName.equals(item(0))).orElseCrash(s"Cannot find method mapping csv:srgName -> srg:srgName for item ${item(0)}.")
+      methodMapping -= mappingObj
+      // same thing with side number
+      val newMappingObj = mappingObj.copy(full = item(1), comment = item(3))
+      methodMapping += newMappingObj
+    }
+
+    if (!skipFinalCheck) {
+      for {
+        mapping <- List(classMapping, methodMapping, fieldMapping)
+        item <- mapping
+        if item.full == null || item.full.isEmpty
+      } throw new McMapperException(s"Incomplete mapping record for item: '${item.obf}' ($item)")
+    }
 
     MappingDatabaseSimple(classMapping, methodMapping, fieldMapping)
   }
