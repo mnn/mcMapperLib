@@ -1,3 +1,4 @@
-"some Text" , more,"  text   ",0
-1,"2",3                  ,                      4                         
+first,line,to,skip
+"some Text",more,"  text   ",0
+1,"2",3,4
 

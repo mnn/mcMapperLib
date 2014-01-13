@@ -37,7 +37,7 @@ class CSVTests extends FlatSpec with Matchers {
     r(0) should equal(List("xx xx", "qqq", "zz ZZ", "0"))
   }
 
-  it should "properly parse file with plain and quoted text and discard white-chars around plain text, but not in quoted text" in {
+  it should "properly parse file with plain and quoted text" in {
     val r = readCSVFile("mixed")
     printResult(r)
     r.length should be(2)
@@ -45,6 +45,14 @@ class CSVTests extends FlatSpec with Matchers {
     r(1) should equal(List("1", "2", "3", "4"))
   }
 
+  it should "parse double quotes" in {
+    val r = readCSVFile("double")
+    printResult(r)
+    r.length should be(1)
+    r(0) should equal(List("some Text", "\"_\"", "next", "last"))
+  }
+
+  /*
   "chopOutGroup" should "chop out a group" in {
     val p = Pattern.compile(s"^((x+)|(y+))")
     val r = CSVReader.chopOutGroup(p, "xx", 0, 0)
@@ -79,4 +87,5 @@ class CSVTests extends FlatSpec with Matchers {
     removeQuotes(null) shouldBe null
     removeQuotes("\"") shouldBe "\""
   }
+  */
 }
