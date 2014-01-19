@@ -39,6 +39,11 @@ object RawDataMerger {
     }
 
     def swapSingleMapping[T <: MappingObject](mapping: MappingSet[T], toDelete: T, toInsert: T): MappingSet[T] = (mapping - toDelete) + toInsert
+
+    def findByShortSrg[M <: MappingObject](id: String, map: Map[String, Set[M]]): Set[M] =
+      if (map.contains(id)) map(id)
+      else Set.empty
+
   }
 
   case class SubMerge(
@@ -51,19 +56,16 @@ object RawDataMerger {
 
     import SubMerge._
 
+    // don't use updated methods if you want caching maps
     def updatedClass(newMappings: MappingSet[ClassMapping]): SubMerge = this.copy(classMapping = newMappings)
 
     def updatedField(newMappings: MappingSet[FieldMapping], newSrgMappings: Map[String, Set[FieldMapping]]): SubMerge = this.copy(fieldMapping = newMappings, fieldShortSrgToObj = newSrgMappings)
 
     def updatedMethod(newMappings: MappingSet[MethodMapping], newSrgMappings: Map[String, Set[MethodMapping]]): SubMerge = this.copy(methodMapping = newMappings, methodShortSrgToObj = newSrgMappings)
 
-    def findFieldByShortSrg(id: String): Set[FieldMapping] =
-      if (fieldShortSrgToObj.contains(id)) fieldShortSrgToObj(id)
-      else Set.empty
+    def findFieldByShortSrg(id: String): Set[FieldMapping] = findByShortSrg(id, fieldShortSrgToObj)
 
-    def findMethodByShortSrg(id: String): Set[MethodMapping] =
-      if (methodShortSrgToObj.contains(id)) methodShortSrgToObj(id)
-      else Set.empty
+    def findMethodByShortSrg(id: String): Set[MethodMapping] = findByShortSrg(id, methodShortSrgToObj)
 
     def insertMapping[M <: MappingObject](mapping: M): SubMerge = mapping match {
       case a: ClassMapping => updatedClass(classMapping + a)
@@ -97,25 +99,19 @@ object RawDataMerger {
           val side =
             if (item.length == 4) getSide(item(3))
             else BOTH
-          mapping = mapping.copy(
-            classMapping = mapping.classMapping + ClassMapping(item(1), item(2), side)
-          )
+          mapping += ClassMapping(item(1), item(2), side)
 
         case "FD" =>
           val side =
             if (item.length == 4) getSide(item(3))
             else BOTH
-          mapping = mapping.copy(
-            fieldMapping = mapping.fieldMapping + FieldMapping(item(1), item(2), "", "", side)
-          )
+          mapping += FieldMapping(item(1), item(2), "", "", side)
 
         case "MD" =>
           val side =
             if (item.length == 6) getSide(item(5))
             else BOTH
-          mapping = mapping.copy(
-            methodMapping = mapping.methodMapping + MethodMapping(item(1), item(3), "", item(2), item(4), "", side)
-          )
+          mapping += MethodMapping(item(1), item(3), "", item(2), item(4), "", side)
       }
     }
     mapping
@@ -130,20 +126,16 @@ object RawDataMerger {
     mapping = populateFromSrg(srgRaw)
 
     // CSV processing
-    // TODO: use maps for navigating mappings by short srg name
     for {
       item <- fieldsRaw
-      //mappingObject <- mapping.fieldMapping.filter(_.srgShortName.equals(item(0)))
       mappingObject <- mapping.findFieldByShortSrg(item(0))
     } {
-      // what about side number? for now ignoring
       val newMappingObj = mappingObject.copy(full = item(1), comment = item(3))
       mapping = mapping.swapMapping(mappingObject, newMappingObj)
     }
 
     for {
       item <- methodsRaw
-      //mappingObject <- mapping.methodMapping.filter(_.srgShortName.equals(item(0)))
       mappingObject <- mapping.findMethodByShortSrg(item(0))
     } {
       // same thing with side number
@@ -151,35 +143,26 @@ object RawDataMerger {
       mapping = mapping.swapMapping(mappingObject, newMappingObj)
     }
 
-    /*
-    // MCP does not contain mapping for all objects, so this is pointless.
-    if (!skipFinalCheck) {
-      for {
-        mapping <- List(classMapping, methodMapping, fieldMapping)
-        item <- mapping
-        if item.full == null || item.full.isEmpty
-      } throw new McMapperException(s"Incomplete mapping record for item: '${item.obf}' ($item)")
-    }
-    */
-
-    if (debugDumpFileEnabled) {
-      val w = new PrintWriter(dumpFile)
-      val sections = List("Classes" -> mapping.classMapping, "Fields" -> mapping.fieldMapping, "Methods" -> mapping.methodMapping)
-      for ((name, data) <- sections) {
-        w.println(name)
-        w.println("----------------------------")
-        w.println
-
-        data.foreach(w.println)
-
-        w.println
-        w.println
-      }
-
-      w.close()
-    }
+    if (debugDumpFileEnabled) doDebugFileDump(mapping)
 
     MappingDatabaseSimple(mapping.classMapping, mapping.methodMapping, mapping.fieldMapping)
+  }
+
+  def doDebugFileDump(mapping: RawDataMerger.SubMerge) {
+    val w = new PrintWriter(dumpFile)
+    val sections = List("Classes" -> mapping.classMapping, "Fields" -> mapping.fieldMapping, "Methods" -> mapping.methodMapping)
+    for ((name, data) <- sections) {
+      w.println(name)
+      w.println("----------------------------")
+      w.println()
+
+      data.foreach(w.println)
+
+      w.println()
+      w.println()
+    }
+
+    w.close()
   }
 
   private def getSide(in: String): MappingSide =

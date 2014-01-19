@@ -98,6 +98,68 @@ class RawDataMergerTests extends FlatSpec with Matchers {
     r = SubMerge.addMapMapping(r, item2)
     r.size shouldBe 2
     r shouldEqual HashMap("f0" -> HashSet(item), "f1" -> HashSet(item2))
+
+    val item3 = FieldMapping("zzz/qwe", "x/y/z/f1", "", "", SERVER) // item2.shortSrg == item3.shortSrg
+    r = SubMerge.addMapMapping(r, item3)
+    r.size shouldBe 2
+    r shouldEqual HashMap("f0" -> HashSet(item), "f1" -> HashSet(item2, item3))
   }
 
+  it should "support removing mappings from a cache map" in {
+    val item = FieldMapping("xxx/a", "f0", "", "", BOTH)
+    val item2 = FieldMapping("yyy/b", "f1", "", "", CLIENT)
+    val item3 = FieldMapping("zzz/qwe", "x/y/z/f1", "", "", SERVER) // item2.shortSrg == item3.shortSrg
+    val m = HashMap("f0" -> HashSet(item), "f1" -> HashSet(item2, item3))
+
+    var r = SubMerge.removeMapMapping(m, item2)
+    r.size shouldBe 2
+    r shouldEqual HashMap("f0" -> HashSet(item), "f1" -> HashSet(item3))
+
+    r = SubMerge.removeMapMapping(r, item3)
+    r.size shouldBe 1
+    r shouldEqual HashMap("f0" -> HashSet(item))
+  }
+
+  it should "find mappings from short srg" in {
+    val item = FieldMapping("xxx/a", "f0", "", "", BOTH)
+    val item2 = FieldMapping("yyy/b", "f1", "", "", CLIENT)
+    val item3 = FieldMapping("zzz/qwe", "x/y/z/f1", "", "", SERVER) // item2.shortSrg == item3.shortSrg
+    val m = HashMap("f0" -> HashSet(item), "f1" -> HashSet(item2, item3))
+    SubMerge.findByShortSrg("f0", m) shouldEqual HashSet(item)
+    SubMerge.findByShortSrg("f1", m) shouldEqual HashSet(item2, item3)
+    SubMerge.findByShortSrg("f999", m) shouldEqual HashSet.empty
+  }
+
+  it should "properly form caching mappings" in {
+    val item = FieldMapping("xxx/a", "f0", "", "", BOTH)
+    val item2 = FieldMapping("yyy/b", "f1", "", "", CLIENT)
+    val item3 = FieldMapping("zzz/qwe", "x/y/z/f1", "", "", SERVER) // item2.shortSrg == item3.shortSrg
+    var a = SubMerge()
+
+    a.fieldMapping.size shouldBe 0
+    a.fieldShortSrgToObj.size shouldBe 0
+
+    a += item
+    a += item2
+    a += item3
+    a.fieldMapping.size shouldBe 3
+    a.fieldShortSrgToObj.size shouldBe 2
+    a.findFieldByShortSrg("f0") shouldEqual HashSet(item)
+    a.findFieldByShortSrg("f1") shouldEqual HashSet(item2, item3)
+
+    a -= item2
+    a.fieldMapping.size shouldBe 2
+    a.fieldShortSrgToObj.size shouldBe 2
+    a.findFieldByShortSrg("f0") shouldEqual HashSet(item)
+    a.findFieldByShortSrg("f1") shouldEqual HashSet(item3)
+
+    a -= item
+    a.fieldMapping.size shouldBe 1
+    a.fieldShortSrgToObj.size shouldBe 1
+    a.findFieldByShortSrg("f1") shouldEqual HashSet(item3)
+
+    a -= item3
+    a.fieldMapping.size shouldBe 0
+    a.fieldShortSrgToObj.size shouldBe 0
+  }
 }
