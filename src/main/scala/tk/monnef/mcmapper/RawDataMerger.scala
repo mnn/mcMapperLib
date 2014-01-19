@@ -90,23 +90,23 @@ object RawDataMerger {
     mapping = populateFromSrg(srgRaw)
 
     // CSV processing
-    for {item <- fieldsRaw} {
-      val mappingObjOpt = mapping.fieldMapping.find(_.srgShortName.equals(item(0)))
-      if (mappingObjOpt.isDefined) {
-        val mappingObject = mappingObjOpt.get
-        // what about side number? for now ignoring
-        val newMappingObj = mappingObject.copy(full = item(1), comment = item(3))
-        mapping = mapping.swapMapping(mappingObject, newMappingObj)
-      }
+    // TODO: use maps for navigating mappings by short srg name
+    for {
+      item <- fieldsRaw
+      mappingObject <- mapping.fieldMapping.filter(_.srgShortName.equals(item(0)))
+    } {
+      // what about side number? for now ignoring
+      val newMappingObj = mappingObject.copy(full = item(1), comment = item(3))
+      mapping = mapping.swapMapping(mappingObject, newMappingObj)
     }
-    for {item <- methodsRaw} {
-      val mappingObjOpt = mapping.methodMapping.find(_.srgShortName.equals(item(0)))
-      if (mappingObjOpt.isDefined) {
-        val mappingObj = mappingObjOpt.get
-        // same thing with side number
-        val newMappingObj = mappingObj.copy(full = item(1), comment = item(3))
-        mapping = mapping.swapMapping(mappingObj, newMappingObj)
-      }
+
+    for {
+      item <- methodsRaw
+      mappingObject <- mapping.methodMapping.filter(_.srgShortName.equals(item(0)))
+    } {
+      // same thing with side number
+      val newMappingObj = mappingObject.copy(full = item(1), comment = item(3))
+      mapping = mapping.swapMapping(mappingObject, newMappingObj)
     }
 
     /*

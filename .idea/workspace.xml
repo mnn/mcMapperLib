@@ -79,10 +79,19 @@
       <file leaf-file-name="RawDataMerger.scala" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/scala/tk/monnef/mcmapper/RawDataMerger.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="101" column="51" selection-start="3764" selection-end="3764" vertical-scroll-proportion="0.33867276" vertical-offset="1421" max-vertical-offset="2635">
+            <state line="92" column="63" selection-start="3384" selection-end="3384" vertical-scroll-proportion="0.3774319" vertical-offset="1370" max-vertical-offset="2635">
               <folding>
                 <element signature="e#28#67#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RawDataMergerTests.scala" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/main/scala/tk/monnef/mcmapper/test/RawDataMergerTests.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="63" column="14" selection-start="2299" selection-end="2299" vertical-scroll-proportion="0.0" vertical-offset="883" max-vertical-offset="1530">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -99,7 +108,7 @@
       <file leaf-file-name="CompleteParsingTest.scala" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/main/scala/tk/monnef/mcmapper/test/CompleteParsingTest.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="0" selection-start="873" selection-end="873" vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="561">
+            <state line="20" column="64" selection-start="594" selection-end="594" vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="561">
               <folding>
                 <element signature="e#33#74#0" expanded="true" />
                 <element signature="e#265#284#0" expanded="true" />
@@ -172,9 +181,9 @@
         <option value="$PROJECT_DIR$/test/main/scala/tk/monnef/mcmapper/test/TestHelper.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/tk/monnef/mcmapper/Utils.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/tk/monnef/mcmapper/McMapper.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/tk/monnef/mcmapper/MappingObject.scala" />
         <option value="$PROJECT_DIR$/test/main/scala/tk/monnef/mcmapper/test/RawDataMergerTests.scala" />
         <option value="$PROJECT_DIR$/test/main/scala/tk/monnef/mcmapper/test/CompleteParsingTest.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/tk/monnef/mcmapper/MappingObject.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/tk/monnef/mcmapper/RawDataMerger.scala" />
       </list>
     </option>
@@ -625,7 +634,7 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -919,13 +928,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/main/scala/tk/monnef/mcmapper/test/RawDataMergerTests.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="28" selection-start="1415" selection-end="1415" vertical-scroll-proportion="0.47254005" vertical-offset="216" max-vertical-offset="1530">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/main/scala/tk/monnef/mcmapper/test/MappingObjectTests.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state line="12" column="42" selection-start="419" selection-end="419" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="374">
@@ -956,7 +958,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test/main/scala/tk/monnef/mcmapper/test/CompleteParsingTest.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="0" selection-start="873" selection-end="873" vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="561">
+        <state line="20" column="64" selection-start="594" selection-end="594" vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="561">
           <folding>
             <element signature="e#33#74#0" expanded="true" />
             <element signature="e#265#284#0" expanded="true" />
@@ -964,9 +966,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/test/main/scala/tk/monnef/mcmapper/test/RawDataMergerTests.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="63" column="14" selection-start="2299" selection-end="2299" vertical-scroll-proportion="0.0" vertical-offset="679" max-vertical-offset="1530">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/tk/monnef/mcmapper/RawDataMerger.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="101" column="51" selection-start="3764" selection-end="3764" vertical-scroll-proportion="0.33867276" vertical-offset="1421" max-vertical-offset="2635">
+        <state line="92" column="63" selection-start="3384" selection-end="3384" vertical-scroll-proportion="0.3774319" vertical-offset="1370" max-vertical-offset="2635">
           <folding>
             <element signature="e#28#67#0" expanded="true" />
           </folding>

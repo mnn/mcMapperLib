@@ -60,8 +60,8 @@ class RawDataMergerTests extends FlatSpec with Matchers {
         List("FD:", "q/t", "n/m/f1")
       ), List(
         //srg, name, side, comment
-        List("n/m/f1", "full_1", "0", ""),
-        List("n/m/f0", "full_0", "1", "xxx")
+        List("f1", "full_1", "0", ""),
+        List("f0", "full_0", "1", "xxx")
       )
       , List()
     )
