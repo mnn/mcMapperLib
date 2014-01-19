@@ -1,9 +1,17 @@
 package tk.monnef.mcmapper
 
 import tk.monnef.mcmapper.MappingSide._
+import java.io.{PrintWriter, FileWriter, File}
+import scala.io.Source
 
 object RawDataMerger {
   type RAW = List[List[String]]
+
+  private var dumpFile: File = null
+
+  def enableDebugDumpFile(f: File) = dumpFile = f
+
+  def debugDumpFileEnabled = dumpFile != null
 
   case class SubMerge(
                        classMapping: MappingSet[ClassMapping] = new MappingSet[ClassMapping](),
@@ -83,7 +91,7 @@ object RawDataMerger {
 
     // CSV processing
     for {item <- fieldsRaw} {
-      val mappingObjOpt = mapping.fieldMapping.find(_.srg.equals(item(0)))
+      val mappingObjOpt = mapping.fieldMapping.find(_.srgShortName.equals(item(0)))
       if (mappingObjOpt.isDefined) {
         val mappingObject = mappingObjOpt.get
         // what about side number? for now ignoring
@@ -111,6 +119,23 @@ object RawDataMerger {
       } throw new McMapperException(s"Incomplete mapping record for item: '${item.obf}' ($item)")
     }
     */
+
+    if (debugDumpFileEnabled) {
+      val w = new PrintWriter(dumpFile)
+      val sections = List("Classes" -> mapping.classMapping, "Fields" -> mapping.fieldMapping, "Methods" -> mapping.methodMapping)
+      for ((name, data) <- sections) {
+        w.println(name)
+        w.println("----------------------------")
+        w.println
+
+        data.foreach(w.println)
+
+        w.println
+        w.println
+      }
+
+      w.close()
+    }
 
     MappingDatabaseSimple(mapping.classMapping, mapping.methodMapping, mapping.fieldMapping)
   }

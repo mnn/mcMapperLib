@@ -4,6 +4,7 @@ import org.scalatest.{Matchers, FlatSpec}
 import tk.monnef.mcmapper._
 import tk.monnef.mcmapper.MethodMapping
 import tk.monnef.mcmapper.ClassMapping
+import java.io.File
 
 class CompleteParsingTest extends FlatSpec with Matchers {
 
@@ -12,6 +13,7 @@ class CompleteParsingTest extends FlatSpec with Matchers {
   import MappingSide._
 
   "McMapper" should "properly parse MCP811" in {
+    RawDataMerger.enableDebugDumpFile(new File("debugDumpFile.txt"))
     val r = McMapper.load(resPath + "mcp/811/")
     r.fields.size shouldBe 6012
     r.methods.size shouldBe 11209

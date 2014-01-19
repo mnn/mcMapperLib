@@ -2,3 +2,5 @@
 /target
 /out
 /test/resources/mcp
+
+/debugDumpFile.txt

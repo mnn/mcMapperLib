@@ -19,9 +19,7 @@ abstract class ExtendedMappingObject extends MappingObject {
   def comment: String
 
   def srg: String
-}
 
-case class MethodMapping(obf: String, srg: String, full: String, obfArgs: String, fullArgs: String, comment: String, side: MappingSide) extends ExtendedMappingObject {
   lazy val srgShortName = {
     if (srg.contains('/')) {
       srg.drop(srg.lastIndexOf('/') + 1)
@@ -30,6 +28,8 @@ case class MethodMapping(obf: String, srg: String, full: String, obfArgs: String
 }
 
 case class ClassMapping(obf: String, full: String, side: MappingSide) extends MappingObject
+
+case class MethodMapping(obf: String, srg: String, full: String, obfArgs: String, fullArgs: String, comment: String, side: MappingSide) extends ExtendedMappingObject
 
 case class FieldMapping(obf: String, srg: String, full: String, comment: String, side: MappingSide) extends ExtendedMappingObject
 
