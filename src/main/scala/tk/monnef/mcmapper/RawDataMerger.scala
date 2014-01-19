@@ -3,6 +3,7 @@ package tk.monnef.mcmapper
 import tk.monnef.mcmapper.MappingSide._
 import java.io.{PrintWriter, FileWriter, File}
 import scala.io.Source
+import scala.collection.immutable.{HashSet, HashMap}
 
 object RawDataMerger {
   type RAW = List[List[String]]
@@ -13,28 +14,67 @@ object RawDataMerger {
 
   def debugDumpFileEnabled = dumpFile != null
 
+  object SubMerge {
+    def addMapMapping[M <: ExtendedMappingObject](map: Map[String, Set[M]], newItem: M): Map[String, Set[M]] = {
+      val newId = newItem.srgShortName
+      var newMap = map
+      if (map.contains(newId)) {
+        val oldSet = map(newId)
+        val newSet = oldSet + newItem
+        newMap = newMap.updated(newId, newSet)
+      }
+      else newMap += newId -> HashSet(newItem)
+      newMap
+    }
+
+    def removeMapMapping[M <: ExtendedMappingObject](map: Map[String, Set[M]], item: M): Map[String, Set[M]] = {
+      var newMap = map
+      val id = item.srgShortName
+      if (!map.contains(id)) throw new McMapperException("Item not found.")
+      val oldSet = map(id)
+      val newSet = oldSet - item
+      if (newSet.isEmpty) newMap -= id
+      else newMap = newMap.updated(id, newSet)
+      newMap
+    }
+
+    def swapSingleMapping[T <: MappingObject](mapping: MappingSet[T], toDelete: T, toInsert: T): MappingSet[T] = (mapping - toDelete) + toInsert
+  }
+
   case class SubMerge(
                        classMapping: MappingSet[ClassMapping] = new MappingSet[ClassMapping](),
                        fieldMapping: MappingSet[FieldMapping] = new MappingSet[FieldMapping](),
-                       methodMapping: MappingSet[MethodMapping] = new MappingSet[MethodMapping]()) {
-    def swapSingleMapping[T <: MappingObject](mapping: MappingSet[T], toDelete: T, toInsert: T): MappingSet[T] = (mapping - toDelete) + toInsert
+                       methodMapping: MappingSet[MethodMapping] = new MappingSet[MethodMapping](),
+                       fieldShortSrgToObj: Map[String, Set[FieldMapping]] = new HashMap[String, Set[FieldMapping]],
+                       methodShortSrgToObj: Map[String, Set[MethodMapping]] = new HashMap[String, Set[MethodMapping]]
+                       ) {
+
+    import SubMerge._
 
     def updatedClass(newMappings: MappingSet[ClassMapping]): SubMerge = this.copy(classMapping = newMappings)
 
-    def updatedField(newMappings: MappingSet[FieldMapping]): SubMerge = this.copy(fieldMapping = newMappings)
+    def updatedField(newMappings: MappingSet[FieldMapping], newSrgMappings: Map[String, Set[FieldMapping]]): SubMerge = this.copy(fieldMapping = newMappings, fieldShortSrgToObj = newSrgMappings)
 
-    def updatedMethod(newMappings: MappingSet[MethodMapping]): SubMerge = this.copy(methodMapping = newMappings)
+    def updatedMethod(newMappings: MappingSet[MethodMapping], newSrgMappings: Map[String, Set[MethodMapping]]): SubMerge = this.copy(methodMapping = newMappings, methodShortSrgToObj = newSrgMappings)
+
+    def findFieldByShortSrg(id: String): Set[FieldMapping] =
+      if (fieldShortSrgToObj.contains(id)) fieldShortSrgToObj(id)
+      else Set.empty
+
+    def findMethodByShortSrg(id: String): Set[MethodMapping] =
+      if (methodShortSrgToObj.contains(id)) methodShortSrgToObj(id)
+      else Set.empty
 
     def insertMapping[M <: MappingObject](mapping: M): SubMerge = mapping match {
       case a: ClassMapping => updatedClass(classMapping + a)
-      case a: FieldMapping => updatedField(fieldMapping + a)
-      case a: MethodMapping => updatedMethod(methodMapping + a)
+      case a: FieldMapping => updatedField(fieldMapping + a, addMapMapping(fieldShortSrgToObj, a))
+      case a: MethodMapping => updatedMethod(methodMapping + a, addMapMapping(methodShortSrgToObj, a))
     }
 
     def removeMapping[M <: MappingObject](mapping: M): SubMerge = mapping match {
       case a: ClassMapping => updatedClass(classMapping - a)
-      case a: FieldMapping => updatedField(fieldMapping - a)
-      case a: MethodMapping => updatedMethod(methodMapping - a)
+      case a: FieldMapping => updatedField(fieldMapping - a, removeMapMapping(fieldShortSrgToObj, a))
+      case a: MethodMapping => updatedMethod(methodMapping - a, removeMapMapping(methodShortSrgToObj, a))
     }
 
     def +[M <: MappingObject](mapping: M): SubMerge = insertMapping(mapping)
@@ -93,7 +133,8 @@ object RawDataMerger {
     // TODO: use maps for navigating mappings by short srg name
     for {
       item <- fieldsRaw
-      mappingObject <- mapping.fieldMapping.filter(_.srgShortName.equals(item(0)))
+      //mappingObject <- mapping.fieldMapping.filter(_.srgShortName.equals(item(0)))
+      mappingObject <- mapping.findFieldByShortSrg(item(0))
     } {
       // what about side number? for now ignoring
       val newMappingObj = mappingObject.copy(full = item(1), comment = item(3))
@@ -102,7 +143,8 @@ object RawDataMerger {
 
     for {
       item <- methodsRaw
-      mappingObject <- mapping.methodMapping.filter(_.srgShortName.equals(item(0)))
+      //mappingObject <- mapping.methodMapping.filter(_.srgShortName.equals(item(0)))
+      mappingObject <- mapping.findMethodByShortSrg(item(0))
     } {
       // same thing with side number
       val newMappingObj = mappingObject.copy(full = item(1), comment = item(3))

@@ -4,6 +4,8 @@ import org.scalatest.{FlatSpec, Matchers}
 import tk.monnef.mcmapper._
 import tk.monnef.mcmapper.ClassMapping
 import tk.monnef.mcmapper.FieldMapping
+import tk.monnef.mcmapper.RawDataMerger.SubMerge
+import scala.collection.immutable.{HashSet, HashMap}
 
 class RawDataMergerTests extends FlatSpec with Matchers {
 
@@ -85,4 +87,17 @@ class RawDataMergerTests extends FlatSpec with Matchers {
     val expected = List(MethodMapping("w/t", "n/m/func_0", "full_0", "(ZLlx;)Z", "(ZLw/t/c0;)Z", "c", CLIENT), MethodMapping("q/t", "n/m/func_1", "full_1", "(ZLq;)V", "(ZLw/t/c1;)V", "", BOTH))
     c.toList.sortWith(o) shouldEqual expected.sortWith(o)
   }
+
+  "SubMerge" should "support adding mappings to a cache map" in {
+    val item = FieldMapping("xxx/a", "f0", "", "", BOTH)
+    var r = SubMerge.addMapMapping(HashMap(), item)
+    r.size shouldBe 1
+    r shouldEqual HashMap("f0" -> HashSet(item))
+
+    val item2 = FieldMapping("yyy/b", "f1", "", "", CLIENT)
+    r = SubMerge.addMapMapping(r, item2)
+    r.size shouldBe 2
+    r shouldEqual HashMap("f0" -> HashSet(item), "f1" -> HashSet(item2))
+  }
+
 }
