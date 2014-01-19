@@ -7,6 +7,7 @@ object TestHelper {
   val resPath = "test/resources/"
 
   def getCSVFile(name: String) = new File(s"${resPath}csv/$name.csv")
+
   def getSrgFile(name: String) = new File(s"${resPath}srg/$name.srg")
 
   def printResult(r: List[List[String]]) {
@@ -14,7 +15,7 @@ object TestHelper {
     for (x <- r) println(x.mkString("[", "÷", "]"))
   }
 
-  def checkExistence(f:File){
+  def checkExistence(f: File) {
     if (!f.exists()) {
       throw new RuntimeException(s"Cannot find file, aborting test. Current path is ${new File(".").getAbsolutePath}")
     }

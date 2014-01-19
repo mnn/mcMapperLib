@@ -1,5 +1,7 @@
 package tk.monnef.mcmapper
 
+import java.io.File
+
 object Utils {
 
   implicit final class ForwardPipe[T](val x: T) extends AnyVal {
@@ -17,5 +19,7 @@ object Utils {
       case Some(a) => a
     }
   }
+
+  def getCurrentPath() = new File(".").getAbsolutePath
 
 }

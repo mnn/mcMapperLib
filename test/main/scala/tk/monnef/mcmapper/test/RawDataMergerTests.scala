@@ -22,7 +22,7 @@ class RawDataMergerTests extends FlatSpec with Matchers {
         List("CL:", "a", "x/y"),
         List("CL:", "b", "q/w", "#C")
       )
-      , List(), List(), skipFinalCheck = true)
+      , List(), List() /*, skipFinalCheck = true*/)
     val c = r.classes
     c.size shouldBe 2
     c.toList.sortWith(o) shouldEqual List(ClassMapping("a", "x/y", BOTH), ClassMapping("b", "q/w", CLIENT)).sortWith(o)
@@ -33,7 +33,7 @@ class RawDataMergerTests extends FlatSpec with Matchers {
       List(
         List("FD:", "w/t", "n/m/f0", "#C"),
         List("FD:", "q/t", "n/m/f1")
-      ), List(), List(), skipFinalCheck = true
+      ), List(), List() /*, skipFinalCheck = true*/
     )
     val c = r.fields
     c.size shouldBe 2
@@ -45,7 +45,7 @@ class RawDataMergerTests extends FlatSpec with Matchers {
       List(
         List("MD:", "w/t", "(ZLlx;)Z", "n/m/func_0", "(ZLw/t/c0;)Z", "#C"),
         List("MD:", "q/t", "(ZLq;)V", "n/m/func_1", "(ZLw/t/c1;)V")
-      ), List(), List(), skipFinalCheck = true
+      ), List(), List() /*, skipFinalCheck = true*/
     )
     val c = r.methods
     c.size shouldBe 2
