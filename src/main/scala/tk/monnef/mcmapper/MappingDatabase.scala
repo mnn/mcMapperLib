@@ -23,26 +23,15 @@ case class MappingDatabaseSearchable(classes: MappingSet[ClassMapping], methods:
 
   import MappingDatabaseSearchable._
 
-  // TODO: more searchable fields
+  val classLookupMaps = LookUpMapHolder.createFromObfAndFull(classes)
+  val fieldLookupMaps = LookUpMapHolder.createFromObfFullAndSrg(fields)
+  val methodLookupMaps = LookUpMapHolder.createFromObfFullAndSrg(methods)
 
-  val classFromObf: Map[String, Set[ClassMapping]] = constructLookUpMap(classes, _.obf.whole)
-  val classFromFull: Map[String, Set[ClassMapping]] = constructLookUpMap(classes, _.full.whole)
+  def searchClass(id: String): Seq[ClassMapping] = doSearchOn(id, classLookupMaps)
 
-  val methodFromObf: Map[String, Set[MethodMapping]] = constructLookUpMap(methods, _.obf.whole)
-  val methodFromFull: Map[String, Set[MethodMapping]] = constructLookUpMap(methods, _.full.whole)
-  val methodFromSrg: Map[String, Set[MethodMapping]] = constructLookUpMap(methods, _.srg.whole)
-  val methodFromShortSrg: Map[String, Set[MethodMapping]] = constructLookUpMap(methods, _.srg.short)
+  def searchMethod(id: String): Seq[MethodMapping] = doSearchOn(id, methodLookupMaps)
 
-  val fieldFromObf: Map[String, Set[FieldMapping]] = constructLookUpMap(fields, _.obf.whole)
-  val fieldFromFull: Map[String, Set[FieldMapping]] = constructLookUpMap(fields, _.full.whole)
-  val fieldFromSrg: Map[String, Set[FieldMapping]] = constructLookUpMap(fields, _.srg.whole)
-  val fieldFromShortSrg: Map[String, Set[FieldMapping]] = constructLookUpMap(fields, _.srg.short)
-
-  def searchClass(id: String): Seq[ClassMapping] = doSearchOn(id, classFromObf, classFromFull)
-
-  def searchMethod(id: String): Seq[MethodMapping] = doSearchOn(id, methodFromObf, methodFromFull, methodFromSrg, methodFromShortSrg)
-
-  def searchField(id: String): Seq[FieldMapping] = doSearchOn(id, fieldFromObf, fieldFromFull, fieldFromSrg, fieldFromShortSrg)
+  def searchField(id: String): Seq[FieldMapping] = doSearchOn(id, fieldLookupMaps)
 
   def searchAny(id: String): Seq[MappingObject] = searchClass(id) ++ searchMethod(id) ++ searchField(id)
 }
@@ -61,5 +50,35 @@ object MappingDatabaseSearchable {
     map
   }
 
-  def doSearchOn[T <: MappingObject](id: String, maps: Map[String, Set[T]]*): Seq[T] = maps.flatMap(_.getOrElse(id, Set.empty).toSeq)
+  @deprecated
+  def obsoleteDoSearchOn[T <: MappingObject](id: String, maps: Map[String, Set[T]]*): Seq[T] = maps.flatMap(_.getOrElse(id, Set.empty).toSeq)
+
+  def doSearchOn[T <: MappingObject](id: String, data: LookUpMapHolder[T]): Seq[T] = data.all.flatMap(_.getOrElse(id, Set.empty).toSeq).distinct
+
+  object LookUpMapHolder {
+    def createFromObfAndFull[T <: MappingObject](data: MappingSet[T]): LookUpMapHolder[T] =
+      LookUpMapHolder(
+        constructLookUpMap(data, _.obf.whole),
+        constructLookUpMap(data, _.obf.short),
+        constructLookUpMap(data, _.full.whole),
+        constructLookUpMap(data, _.full.short),
+        Map.empty,
+        Map.empty
+      )
+
+    def createFromObfFullAndSrg[T <: ExtendedMappingObject](data: MappingSet[T]): LookUpMapHolder[T] =
+      LookUpMapHolder(
+        constructLookUpMap(data, _.obf.whole),
+        constructLookUpMap(data, _.obf.short),
+        constructLookUpMap(data, _.full.whole),
+        constructLookUpMap(data, _.full.short),
+        constructLookUpMap(data, _.srg.whole),
+        constructLookUpMap(data, _.srg.short)
+      )
+  }
+
+  case class LookUpMapHolder[T <: MappingObject](obfWhole: Map[String, Set[T]], obfShort: Map[String, Set[T]], fullWhole: Map[String, Set[T]], fullShort: Map[String, Set[T]], srgWhole: Map[String, Set[T]], srgShort: Map[String, Set[T]]) {
+    val all: Seq[Map[String, Set[T]]] = List(obfWhole, obfShort, fullWhole, fullShort, srgWhole, srgShort).filter(_.nonEmpty)
+  }
+
 }
