@@ -16,7 +16,7 @@ object RawDataMerger {
 
   object SubMerge {
     def addMapMapping[M <: ExtendedMappingObject](map: Map[String, Set[M]], newItem: M): Map[String, Set[M]] = {
-      val newId = newItem.srgShortName
+      val newId = newItem.srg.short
       var newMap = map
       if (map.contains(newId)) {
         val oldSet = map(newId)
@@ -29,7 +29,7 @@ object RawDataMerger {
 
     def removeMapMapping[M <: ExtendedMappingObject](map: Map[String, Set[M]], item: M): Map[String, Set[M]] = {
       var newMap = map
-      val id = item.srgShortName
+      val id = item.srg.short
       if (!map.contains(id)) throw new McMapperException("Item not found.")
       val oldSet = map(id)
       val newSet = oldSet - item
@@ -99,19 +99,19 @@ object RawDataMerger {
           val side =
             if (item.length == 4) getSide(item(3))
             else BOTH
-          mapping += ClassMapping(item(1), item(2), side)
+          mapping += ClassMapping(PathItem(item(1)), PathItem(item(2)), side)
 
         case "FD" =>
           val side =
             if (item.length == 4) getSide(item(3))
             else BOTH
-          mapping += FieldMapping(item(1), item(2), "", "", side)
+          mapping += FieldMapping(PathItem(item(1)), PathItem(item(2)), PathItem.empty, "", side)
 
         case "MD" =>
           val side =
             if (item.length == 6) getSide(item(5))
             else BOTH
-          mapping += MethodMapping(item(1), item(3), "", item(2), item(4), "", side)
+          mapping += MethodMapping(PathItem(item(1)), PathItem(item(3)), PathItem.empty, item(2), item(4), "", side)
       }
     }
     mapping
@@ -130,7 +130,7 @@ object RawDataMerger {
       item <- fieldsRaw
       mappingObject <- mapping.findFieldByShortSrg(item(0))
     } {
-      val newMappingObj = mappingObject.copy(full = item(1), comment = item(3))
+      val newMappingObj = mappingObject.copy(full = PathItem.fromShort(item(1)), comment = item(3)).constructWholeFull
       mapping = mapping.swapMapping(mappingObject, newMappingObj)
     }
 
@@ -139,7 +139,7 @@ object RawDataMerger {
       mappingObject <- mapping.findMethodByShortSrg(item(0))
     } {
       // same thing with side number
-      val newMappingObj = mappingObject.copy(full = item(1), comment = item(3))
+      val newMappingObj = mappingObject.copy(full = PathItem.fromShort(item(1)), comment = item(3)).constructWholeFull
       mapping = mapping.swapMapping(mappingObject, newMappingObj)
     }
 

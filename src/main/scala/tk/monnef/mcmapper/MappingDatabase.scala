@@ -23,18 +23,20 @@ case class MappingDatabaseSearchable(classes: MappingSet[ClassMapping], methods:
 
   import MappingDatabaseSearchable._
 
-  val classFromObf: Map[String, Set[ClassMapping]] = constructLookUpMap(classes, _.obf)
-  val classFromFull: Map[String, Set[ClassMapping]] = constructLookUpMap(classes, _.full)
+  // TODO: more searchable fields
 
-  val methodFromObf: Map[String, Set[MethodMapping]] = constructLookUpMap(methods, _.obf)
-  val methodFromFull: Map[String, Set[MethodMapping]] = constructLookUpMap(methods, _.full)
-  val methodFromSrg: Map[String, Set[MethodMapping]] = constructLookUpMap(methods, _.srg)
-  val methodFromShortSrg: Map[String, Set[MethodMapping]] = constructLookUpMap(methods, _.srgShortName)
+  val classFromObf: Map[String, Set[ClassMapping]] = constructLookUpMap(classes, _.obf.whole)
+  val classFromFull: Map[String, Set[ClassMapping]] = constructLookUpMap(classes, _.full.whole)
 
-  val fieldFromObf: Map[String, Set[FieldMapping]] = constructLookUpMap(fields, _.obf)
-  val fieldFromFull: Map[String, Set[FieldMapping]] = constructLookUpMap(fields, _.full)
-  val fieldFromSrg: Map[String, Set[FieldMapping]] = constructLookUpMap(fields, _.srg)
-  val fieldFromShortSrg: Map[String, Set[FieldMapping]] = constructLookUpMap(fields, _.srgShortName)
+  val methodFromObf: Map[String, Set[MethodMapping]] = constructLookUpMap(methods, _.obf.whole)
+  val methodFromFull: Map[String, Set[MethodMapping]] = constructLookUpMap(methods, _.full.whole)
+  val methodFromSrg: Map[String, Set[MethodMapping]] = constructLookUpMap(methods, _.srg.whole)
+  val methodFromShortSrg: Map[String, Set[MethodMapping]] = constructLookUpMap(methods, _.srg.short)
+
+  val fieldFromObf: Map[String, Set[FieldMapping]] = constructLookUpMap(fields, _.obf.whole)
+  val fieldFromFull: Map[String, Set[FieldMapping]] = constructLookUpMap(fields, _.full.whole)
+  val fieldFromSrg: Map[String, Set[FieldMapping]] = constructLookUpMap(fields, _.srg.whole)
+  val fieldFromShortSrg: Map[String, Set[FieldMapping]] = constructLookUpMap(fields, _.srg.short)
 
   def searchClass(id: String): Seq[ClassMapping] = doSearchOn(id, classFromObf, classFromFull)
 

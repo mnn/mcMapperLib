@@ -16,7 +16,7 @@ class MappingDatabaseTests extends FlatSpec with Matchers {
     val f1 = FieldMapping("obf1", "srg1", "full1", "", BOTH)
     val f2 = FieldMapping("obf2", "srg2", "full2", "", BOTH)
     val f3 = FieldMapping("obf3", "srg2", "full2", "", BOTH)
-    val r = constructLookUpMap(MappingSet[FieldMapping](f1, f2, f3), (a: FieldMapping) => a.srgShortName)
+    val r = constructLookUpMap(MappingSet[FieldMapping](f1, f2, f3), (a: FieldMapping) => a.srg.short)
     r shouldEqual Map("srg1" -> HashSet(f1), "srg2" -> HashSet(f2, f3))
   }
 
@@ -29,7 +29,7 @@ class MappingDatabaseTests extends FlatSpec with Matchers {
     val clm: Map[String, HashSet[MethodMapping]] = Map("obf1" -> HashSet(c1, c3), "obf3" -> HashSet(c2))
     val flm: Map[String, HashSet[FieldMapping]] = Map("obf1" -> HashSet(f1), "obf2" -> HashSet(f2))
 
-    def o(a: MappingObject, b: MappingObject): Boolean = if (!a.obf.equals(b.obf)) a.obf > b.obf else a.full > b.full
+    def o(a: MappingObject, b: MappingObject): Boolean = if (!a.obf.equals(b.obf)) a.obf.whole > b.obf.whole else a.full.whole > b.full.whole
 
     doSearchOn("obf1", clm).sortWith(o) shouldEqual Seq(c1, c3).sortWith(o)
     doSearchOn("obf1", flm).sortWith(o) shouldEqual Seq(f1).sortWith(o)

@@ -12,11 +12,11 @@ class RawDataMergerTests extends FlatSpec with Matchers {
   import TestHelper._
   import tk.monnef.mcmapper.MappingSide._
 
-  def o(a: MappingObject, b: MappingObject) = a.obf < b.obf
+  def o(a: MappingObject, b: MappingObject) = a.obf.whole < b.obf.whole
 
-  def removeCommentAndFullName(in: FieldMapping): FieldMapping = in.copy(comment = "", full = "")
+  def removeCommentAndFullName(in: FieldMapping): FieldMapping = in.copy(comment = "", full = PathItem.empty)
 
-  def removeCommentAndFullName(in: MethodMapping): MethodMapping = in.copy(comment = "", full = "")
+  def removeCommentAndFullName(in: MethodMapping): MethodMapping = in.copy(comment = "", full = PathItem.empty)
 
   "RawDataMerger" should "construct classes" in {
     val r = RawDataMerger.merge(
@@ -69,7 +69,7 @@ class RawDataMergerTests extends FlatSpec with Matchers {
     )
     val c = r.fields
     c.size shouldBe 2
-    c.toList.sortWith(o) shouldEqual List(FieldMapping("w/t", "n/m/f0", "full_0", "xxx", CLIENT), FieldMapping("q/t", "n/m/f1", "full_1", "", BOTH)).sortWith(o)
+    c.toList.sortWith(o) shouldEqual List(FieldMapping("w/t", "n/m/f0", "full_0", "xxx", CLIENT), FieldMapping("q/t", "n/m/f1", "full_1", "", BOTH)).map(_.constructWholeFull).sortWith(o)
   }
 
   it should "construct fully methods" in {
@@ -84,7 +84,7 @@ class RawDataMergerTests extends FlatSpec with Matchers {
     )
     val c = r.methods
     c.size shouldBe 2
-    val expected = List(MethodMapping("w/t", "n/m/func_0", "full_0", "(ZLlx;)Z", "(ZLw/t/c0;)Z", "c", CLIENT), MethodMapping("q/t", "n/m/func_1", "full_1", "(ZLq;)V", "(ZLw/t/c1;)V", "", BOTH))
+    val expected = List(MethodMapping("w/t", "n/m/func_0", "full_0", "(ZLlx;)Z", "(ZLw/t/c0;)Z", "c", CLIENT), MethodMapping("q/t", "n/m/func_1", "full_1", "(ZLq;)V", "(ZLw/t/c1;)V", "", BOTH)).map(_.constructWholeFull)
     c.toList.sortWith(o) shouldEqual expected.sortWith(o)
   }
 

@@ -7,29 +7,59 @@ object MappingSide extends Enumeration {
   val CLIENT, SERVER, BOTH = Value
 }
 
-abstract class MappingObject {
-  def obf: String
+object MappingObject {
+  lazy val pathDelimiter = '/'
+  lazy val pathDelimiterString = pathDelimiter.toString
 
-  def full: String
+  def extractShortName(in: String): String = {
+    if (in.contains(pathDelimiter)) in.drop(in.lastIndexOf(pathDelimiter) + 1)
+    else in
+  }
+
+  def extractPath(in: String): String =
+    if (in.contains(pathDelimiter)) in.take(in.lastIndexOf(pathDelimiter))
+    else ""
+}
+
+abstract class MappingObject {
+  def obf: PathItem
 
   def side: MappingSide
+
+  def full: PathItem
+
+  def constructWholeFull: MappingObject
 }
 
 abstract class ExtendedMappingObject extends MappingObject {
   def comment: String
 
-  def srg: String
+  def srg: PathItem
 
-  lazy val srgShortName = {
-    if (srg.contains('/')) {
-      srg.drop(srg.lastIndexOf('/') + 1)
-    } else srg
-  }
+  def computeWholeFull: PathItem = PathItem.fromPathAndShort(srg.path, full.short)
 }
 
-case class ClassMapping(obf: String, full: String, side: MappingSide) extends MappingObject
+object ClassMapping {
+  def apply(obfWhole: String, fullWhole: String, side: MappingSide): ClassMapping = ClassMapping(PathItem(obfWhole), PathItem(fullWhole), side)
+}
 
-case class MethodMapping(obf: String, srg: String, full: String, obfArgs: String, fullArgs: String, comment: String, side: MappingSide) extends ExtendedMappingObject
+case class ClassMapping(obf: PathItem, full: PathItem, side: MappingSide) extends MappingObject {
+  def constructWholeFull: ClassMapping = this
+}
 
-case class FieldMapping(obf: String, srg: String, full: String, comment: String, side: MappingSide) extends ExtendedMappingObject
+object MethodMapping {
+  def apply(obfWhole: String, srgWhole: String, fullShort: String, obfArgs: String, fullArgs: String, comment: String, side: MappingSide): MethodMapping = MethodMapping(PathItem(obfWhole), PathItem(srgWhole), PathItem.fromShort(fullShort), obfArgs, fullArgs, comment, side)
+}
+
+case class MethodMapping(obf: PathItem, srg: PathItem, full: PathItem, obfArgs: String, fullArgs: String, comment: String, side: MappingSide) extends ExtendedMappingObject {
+  def constructWholeFull: MethodMapping = this.copy(full = computeWholeFull)
+}
+
+object FieldMapping {
+  def apply(obfWhole: String, srgWhole: String, fullShort: String, comment: String, side: MappingSide): FieldMapping = FieldMapping(PathItem(obfWhole), PathItem(srgWhole), PathItem.fromShort(fullShort), comment, side)
+}
+
+case class FieldMapping(obf: PathItem, srg: PathItem, full: PathItem, comment: String, side: MappingSide) extends ExtendedMappingObject {
+  def constructWholeFull: FieldMapping = this.copy(full = computeWholeFull)
+}
 
