@@ -29,6 +29,10 @@ abstract class MappingObject {
   def full: PathItem
 
   def constructWholeFull: MappingObject
+
+  def isExtended: Boolean = false
+
+  def asExtended: ExtendedMappingObject = this.asInstanceOf[ExtendedMappingObject]
 }
 
 abstract class ExtendedMappingObject extends MappingObject {
@@ -37,6 +41,8 @@ abstract class ExtendedMappingObject extends MappingObject {
   def srg: PathItem
 
   def computeWholeFull: PathItem = PathItem.fromPathAndShort(srg.path, full.short)
+
+  override def isExtended: Boolean = true
 }
 
 object ClassMapping {
