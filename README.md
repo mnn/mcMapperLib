@@ -7,6 +7,6 @@ It's a simple library for accessing mapping information in files used by [MCP](h
 Used libraries
 --------------
 
-* opencsv - CSV parser; main contributors are Glen Smith, Kyle Miller, Scott Conway and Sean Sullivan 
-  * [opencsv.sourceforge.net](http://opencsv.sourceforge.net/)
-  
+* [opencsv](http://opencsv.sourceforge.net/) - CSV parser
+* [ScalaTest](http://scalatest.org/) - test framework
+
