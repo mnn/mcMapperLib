@@ -77,7 +77,7 @@
       <file leaf-file-name="TestHelper.scala" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/scala/tk/monnef/mcmapper/test/TestHelper.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="28" selection-start="156" selection-end="188" vertical-scroll-proportion="0.0778032" vertical-offset="0" max-vertical-offset="874">
+            <state line="15" column="64" selection-start="435" selection-end="435" vertical-scroll-proportion="0.2528604" vertical-offset="0" max-vertical-offset="874">
               <folding />
             </state>
           </provider>
@@ -673,7 +673,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-4" y="-4" width="1928" height="1044" extended-state="6" />
+    <frame x="-4" y="-4" width="1928" height="1044" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -954,7 +954,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/scala/tk/monnef/mcmapper/test/TestHelper.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="28" selection-start="156" selection-end="188" vertical-scroll-proportion="0.0778032" vertical-offset="0" max-vertical-offset="874">
+        <state line="15" column="64" selection-start="435" selection-end="435" vertical-scroll-proportion="0.2528604" vertical-offset="0" max-vertical-offset="874">
           <folding />
         </state>
       </provider>
