@@ -4,7 +4,7 @@ import java.io.File
 import tk.monnef.mcmapper.{SrgReader, CSVReader}
 
 object TestHelper {
-  val resPath = "test/resources/"
+  val resPath = "src/test/resources/"
 
   def getCSVFile(name: String) = new File(s"${resPath}csv/$name.csv")
 
