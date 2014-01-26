@@ -2,6 +2,9 @@ package tk.monnef.mcmapper.test
 
 import java.io.File
 import tk.monnef.mcmapper.{SrgReader, CSVReader}
+import org.scalatest.Tag
+
+object MCPTest extends Tag("tk.monnef.mcmapper.test.tags.MCP")
 
 object TestHelper {
   val resPath = "src/test/resources/"

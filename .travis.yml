@@ -1,4 +1,9 @@
 language: scala
+
 scala:
    - 2.10.2
    - 2.10.3
+
+script:
+  - sbt -jvm-opts travis/jvmopts.compile ... compile
+  - sbt -jvm-opts travis/jvmopts.test ... test-only -- -l tk.monnef.mcmapper.test.tags.MCP

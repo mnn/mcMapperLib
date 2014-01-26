@@ -77,7 +77,16 @@
       <file leaf-file-name="TestHelper.scala" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/scala/tk/monnef/mcmapper/test/TestHelper.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="21" selection-start="144" selection-end="144" vertical-scroll-proportion="0.16536964" vertical-offset="0" max-vertical-offset="680">
+            <state line="6" column="28" selection-start="156" selection-end="188" vertical-scroll-proportion="0.0778032" vertical-offset="0" max-vertical-offset="874">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CompleteParsingTest.scala" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/scala/tk/monnef/mcmapper/test/CompleteParsingTest.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="33" column="71" selection-start="1642" selection-end="1642" vertical-scroll-proportion="0.0" vertical-offset="91" max-vertical-offset="952">
               <folding />
             </state>
           </provider>
@@ -86,7 +95,7 @@
       <file leaf-file-name="MappingObject.scala" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/tk/monnef/mcmapper/MappingObject.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="52" column="6" selection-start="1337" selection-end="1337" vertical-scroll-proportion="0.0" vertical-offset="884" max-vertical-offset="1309">
+            <state line="52" column="6" selection-start="1337" selection-end="1337" vertical-scroll-proportion="0.0" vertical-offset="448" max-vertical-offset="1309">
               <folding />
             </state>
           </provider>
@@ -129,6 +138,7 @@
         <option value="$PROJECT_DIR$/test/main/scala/tk/monnef/mcmapper/test/MappingDatabaseTests.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/tk/monnef/mcmapper/MappingDatabase.scala" />
         <option value="$PROJECT_DIR$/src/test/scala/tk/monnef/mcmapper/test/TestHelper.scala" />
+        <option value="$PROJECT_DIR$/src/test/scala/tk/monnef/mcmapper/test/CompleteParsingTest.scala" />
       </list>
     </option>
   </component>
@@ -200,6 +210,36 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mcMapperLib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mcMapperLib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scala" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TestHelper.scala" />
+              <option name="myItemType" value="org.jetbrains.plugins.scala.components.ScalaDefsProjectViewProvider$ScalaFileTreeNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -633,7 +673,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-4" y="-4" width="1928" height="1044" extended-state="7" />
+    <frame x="-4" y="-4" width="1928" height="1044" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -642,7 +682,7 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -835,7 +875,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="24" column="42" selection-start="744" selection-end="744" vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="663">
           <folding>
-            <element signature="e#28#47#0" expanded="true" />
+            <element signature="e#28#47#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -879,7 +919,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="128" column="0" selection-start="5088" selection-end="5088" vertical-scroll-proportion="0.33867276" vertical-offset="1880" max-vertical-offset="3060">
           <folding>
-            <element signature="e#28#67#0" expanded="true" />
+            <element signature="e#28#67#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -891,13 +931,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/tk/monnef/mcmapper/MappingObject.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="6" selection-start="1337" selection-end="1337" vertical-scroll-proportion="0.0" vertical-offset="884" max-vertical-offset="1309">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/tk/monnef/mcmapper/MappingDatabase.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state line="37" column="18" selection-start="1289" selection-end="1289" vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="1513">
@@ -905,9 +938,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/scala/tk/monnef/mcmapper/test/CompleteParsingTest.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="71" selection-start="1642" selection-end="1642" vertical-scroll-proportion="0.0" vertical-offset="91" max-vertical-offset="952">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/tk/monnef/mcmapper/MappingObject.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="52" column="6" selection-start="1337" selection-end="1337" vertical-scroll-proportion="0.0" vertical-offset="884" max-vertical-offset="1309">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/scala/tk/monnef/mcmapper/test/TestHelper.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="21" selection-start="144" selection-end="144" vertical-scroll-proportion="0.16536964" vertical-offset="0" max-vertical-offset="680">
+        <state line="6" column="28" selection-start="156" selection-end="188" vertical-scroll-proportion="0.0778032" vertical-offset="0" max-vertical-offset="874">
           <folding />
         </state>
       </provider>

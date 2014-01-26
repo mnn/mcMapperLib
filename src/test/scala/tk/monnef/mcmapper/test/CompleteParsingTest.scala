@@ -14,11 +14,12 @@ class CompleteParsingTest extends FlatSpec with Matchers {
 
   val mcp811path = resPath + "mcp/811/"
 
-  "MCP811" should "be present" in {
+
+  "MCP811" should "be present" taggedAs MCPTest in {
     if (!new File(mcp811path).exists()) fail()
   }
 
-  "McMapper" should "properly parse MCP811" in {
+  "McMapper" should "properly parse MCP811" taggedAs MCPTest in {
     RawDataMerger.enableDebugDumpFile(new File("debugDumpFile.txt"))
     val r = McMapper.load(mcp811path)
     r.fields.size shouldBe 6012
@@ -31,7 +32,7 @@ class CompleteParsingTest extends FlatSpec with Matchers {
     r.methods.find(a => a.obf.whole.equals("nn/a") && a.obfArgs.equals("(IIF)Lss;")).get shouldEqual MethodMapping("nn/a", "net/minecraft/entity/Entity/func_70054_a", "dropItemWithOffset", "(IIF)Lss;", "(IIF)Lnet/minecraft/entity/item/EntityItem;", "Drops an item stack with a specified y offset. Args: itemID, count, yOffset", BOTH).constructWholeFull
   }
 
-  it should "be able to create and use search db" in {
+  it should "be able to create and use search db" taggedAs MCPTest in {
     val r = McMapper.load(mcp811path)
     var db = MappingDatabaseSearchable(r)
 
