@@ -33,3 +33,8 @@ val db = MappingDatabaseSearchable(data)
 Then you can simply call `db.searchClass("cl")` to get classes named `cl` (so far it's only supported a full-match).
 
 For more samples you can take a look at `CompleteParsingTest` test class.
+
+
+License
+-------
+TODO (probably CPAL)
