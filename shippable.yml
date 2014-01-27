@@ -7,3 +7,4 @@ scala:
 script:
   - sbt compile
   - sbt "test-only -- -l tk.monnef.mcmapper.test.tags.MCP"
+  - sbt package
