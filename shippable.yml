@@ -1,0 +1,9 @@
+language: scala
+
+scala:
+   - 2.10.2
+   - 2.10.3
+
+script:
+  - sbt compile
+  - sbt "test-only -- -l tk.monnef.mcmapper.test.tags.MCP"
